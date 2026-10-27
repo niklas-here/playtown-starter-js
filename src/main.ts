@@ -1,4 +1,4 @@
-// Stjärnjakt, PlayTown's starter game: collect as many stars as you can in 30 seconds.
+// Star Hunt, PlayTown's starter game: collect as many stars as you can in 30 seconds.
 // Everything that talks to PlayTown is in this file. The rules are in game.ts and the texts in texts.ts.
 import { connect, createInput, PlayTownError, type InputAction, type InputMethod, type PlayTownClient } from "@playtown/sdk";
 import { isProgress, mergeProgress, newRound, SIZE, step, tick, towards, type Direction, type Progress, type Round } from "./game";

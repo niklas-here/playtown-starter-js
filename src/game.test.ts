@@ -4,7 +4,7 @@ import { mergeProgress, newRound, placeStar, ROUND_MS, SIZE, step, tick, towards
 // A fixed sequence instead of Math.random, so every run is the same.
 const sequence = (...values: number[]) => () => values.shift() ?? 0;
 
-describe("Stjärnjakt", () => {
+describe("Star Hunt", () => {
   it("starts in the middle with a star somewhere else", () => {
     const round = newRound(sequence(0, 0));
     expect(round.player).toEqual({ x: 3, y: 3 });

@@ -1,4 +1,4 @@
-// The rules of Stjärnjakt, without PlayTown or the page, so they can be tested on their own (npm test).
+// The rules of Star Hunt, without PlayTown or the page, so they can be tested on their own (npm test).
 
 export const SIZE = 7;
 export const ROUND_MS = 30_000;
