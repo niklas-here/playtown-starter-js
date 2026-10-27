@@ -48,6 +48,7 @@ Every game describes itself in `playtown.json`. Players and parents see these fa
 - **Must:** load only the game's own files. No requests to other addresses, no links out, popups, forms or downloads.
 - **Must:** never ask for or store names, ages, photos, addresses or other personal data. `gamePlayerId` is the only player id there is.
 - **Must:** no advertising, tracking or analytics of your own.
+- **Must:** no chat or free text between players of the game's own. Friends and chat are PlayTown's; use `party.get()` and `ui.openParty()` to play together (see *Playing together*).
 - **Must:** no secrets in the code: no keys, passwords or tokens.
 
 ## Content
