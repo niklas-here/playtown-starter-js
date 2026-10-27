@@ -59,8 +59,8 @@ type Texts = {
 
 const languages: Record<string, Texts> = { sv, en };
 
-/** Texts for a locale such as `sv` or `en-GB`, in Swedish when the language is missing. */
+/** Texts for a locale such as `en-GB` or `sv`, in English when the language is missing. */
 export function textsFor(locale: string): Texts & { lang: string } {
   const lang = locale.split("-")[0]!;
-  return languages[lang] ? { ...languages[lang], lang } : { ...sv, lang: "sv" };
+  return languages[lang] ? { ...languages[lang], lang } : { ...en, lang: "en" };
 }

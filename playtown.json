@@ -1,21 +1,21 @@
 {
   "$schema": "https://playtown-docs-staging.niklas-2d1.workers.dev/playtown.schema.json",
   "manifestVersion": 1,
-  "gameId": "stjarnjakt",
+  "gameId": "star-hunt",
   "sdkProtocol": 1,
   "entrypoint": "index.html",
   "catalog": {
-    "title": { "sv": "Stjärnjakt", "en": "Star Hunt" },
+    "title": { "en": "Star Hunt", "sv": "Stjärnjakt" },
     "summary": {
-      "sv": "Samla så många stjärnor du kan på 30 sekunder.",
-      "en": "Collect as many stars as you can in 30 seconds."
+      "en": "Collect as many stars as you can in 30 seconds.",
+      "sv": "Samla så många stjärnor du kan på 30 sekunder."
     },
     "coverImage": "cover.png"
   },
   "build": { "profile": "web-js", "output": "dist", "releaseAsset": "playtown-export.zip" },
   "input": ["touch", "gamepad", "keyboard", "mouse"],
   "orientation": "any",
-  "locales": ["sv", "en"],
+  "locales": ["en", "sv"],
   "capabilities": ["saves"],
   "saveSchemaVersion": 1
 }

@@ -1,9 +1,9 @@
-# Nyheter
+# Changelog
 
-Skriv en rubrik för varje ny version innan du taggar den, med samma namn som taggen, till exempel `## v0.2.0`. Arbetsflödet Release lägger texten under rubriken på GitHub-releasen. Samma punkter skriver du i Studio när du skickar releasen till granskning.
+Before you tag a new version, write a heading for it with the same name as the tag, for example `## v0.2.0`. The Release workflow puts the text under the heading on the GitHub Release. You write the same points in Studio when you send the release for review.
 
 ## v0.1.0
 
-### Tillagt
+### Added
 
-- Första versionen av spelet.
+- The first version of the game.
