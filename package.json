@@ -1,0 +1,22 @@
+{
+  "name": "playtown-starter-js",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "test": "vitest run",
+    "validate": "playtown validate",
+    "playtown": "npm run build && playtown dev --open",
+    "playtown:dev": "playtown dev --url http://localhost:5173 --open"
+  },
+  "dependencies": {
+    "@playtown/sdk": "file:vendor/playtown-sdk-0.1.0.tgz"
+  },
+  "devDependencies": {
+    "@playtown/cli": "file:vendor/playtown-cli-0.1.0.tgz",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.5",
+    "vitest": "^5.0.5"
+  }
+}

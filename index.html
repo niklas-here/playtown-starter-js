@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stjärnjakt</title>
+  </head>
+  <body>
+    <main class="game">
+      <header class="hud">
+        <h1 id="title">Stjärnjakt</h1>
+        <span id="score"></span>
+        <span id="time"></span>
+        <span id="best" class="muted"></span>
+      </header>
+      <div id="board" class="board" aria-hidden="true"></div>
+      <p id="status" class="status" role="status" aria-live="polite"></p>
+      <p id="help" class="help"></p>
+    </main>
+    <div id="overlay" class="overlay" hidden></div>
+    <script type="module" src="./src/main.ts"></script>
+  </body>
+</html>

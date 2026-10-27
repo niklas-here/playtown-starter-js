@@ -1,0 +1,102 @@
+:root {
+  color-scheme: dark;
+  --sky: #13203a;
+  --cell: #1f3354;
+  --text: #eef3ff;
+  --muted: #a9b7d6;
+  --gold: #ffce54;
+  --player: #5ad1b5;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+  background: var(--sky);
+  color: var(--text);
+  /* The game owns every touch: no scrolling, zooming or text selection while playing. */
+  touch-action: none;
+  user-select: none;
+  overflow: hidden;
+}
+
+.game {
+  height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr auto auto;
+  justify-items: center;
+  gap: 12px;
+  padding: 16px;
+}
+
+.hud {
+  display: flex;
+  gap: 20px;
+  align-items: baseline;
+  font-size: clamp(16px, 3vmin, 24px);
+}
+
+.hud h1 {
+  margin: 0;
+  font-size: 1.2em;
+}
+
+.hud .muted {
+  color: var(--muted);
+}
+
+.board {
+  /* Square, as large as the screen allows in either orientation. */
+  width: min(100%, 70vh);
+  aspect-ratio: 1;
+  align-self: center;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+}
+
+.cell {
+  border-radius: 8px;
+  background: var(--cell);
+}
+
+.cell.player {
+  background: var(--player);
+  border-radius: 50%;
+}
+
+.cell.star {
+  background: radial-gradient(circle, var(--gold) 45%, var(--cell) 46%);
+}
+
+.status {
+  min-height: 1.4em;
+  margin: 0;
+  font-size: clamp(16px, 3vmin, 22px);
+  text-align: center;
+}
+
+.help {
+  margin: 0;
+  color: var(--muted);
+  text-align: center;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: clamp(24px, 6vmin, 48px);
+  background: rgb(10 16 30 / 0.8);
+}
+
+/* `display: grid` above would otherwise win over the hidden attribute and cover the game. */
+.overlay[hidden] {
+  display: none;
+}

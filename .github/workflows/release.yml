@@ -1,0 +1,29 @@
+# Builds the game when you push a tag such as v0.1.0, and attaches the export to a GitHub Release as
+# playtown-export.zip (build.releaseAsset in playtown.json). In PlayTown Studio you then import the tag.
+name: Release
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm test
+      - run: npm run build
+      # The same checks as PlayTown's import. A failing check stops the release here.
+      - run: npx playtown validate
+      - run: zip -qr playtown-export.zip dist
+      - run: gh release create "$GITHUB_REF_NAME" playtown-export.zip --title "$GITHUB_REF_NAME" --notes-file CHANGELOG.md
+        env:
+          GH_TOKEN: ${{ github.token }}
