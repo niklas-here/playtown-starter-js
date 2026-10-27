@@ -10,7 +10,11 @@
       "en": "Collect as many stars as you can in 30 seconds.",
       "sv": "Samla så många stjärnor du kan på 30 sekunder."
     },
-    "coverImage": "cover.png"
+    "coverImage": "cover.png",
+    "genres": ["casual", "action"],
+    "players": { "min": 1, "max": 1 },
+    "ageRating": 3,
+    "playMinutes": 2
   },
   "build": { "profile": "web-js", "output": "dist", "releaseAsset": "playtown-export.zip" },
   "input": ["touch", "gamepad", "keyboard", "mouse"],

@@ -1,7 +1,5 @@
 # PlayTown starter kit for JavaScript and TypeScript
 
-English · [Svenska](README.sv.md)
-
 A small finished game, *Star Hunt*, that shows everything a game needs to work in PlayTown:
 
 - connecting to the platform,
@@ -11,7 +9,7 @@ A small finished game, *Star Hunt*, that shows everything a game needs to work i
 - saves that cope with two devices,
 - two languages.
 
-Replace the game with your own and keep the rest.
+Replace the game with your own and keep the rest. **`PLAYTOWN.md` lists what every PlayTown game must and should do**: build against it, and give it to your AI coding assistant if you use one.
 
 The full guide is in [PlayTown's developer documentation](https://playtown-docs-staging.niklas-2d1.workers.dev/getting-started/).
 
@@ -43,7 +41,8 @@ npm run playtown:dev    # in another
 
 | File | What it is |
 |---|---|
-| `playtown.json` | The manifest: the game's id, name, languages, controls and what it needs |
+| `PLAYTOWN.md` | PlayTown's requirements for every game: keep it, build against it |
+| `playtown.json` | The manifest: the game's id, name, criteria (kind of game, players, age, play time), languages, controls and what it needs |
 | `src/main.ts` | Everything that talks to PlayTown |
 | `src/game.ts` | The game's rules, without PlayTown |
 | `src/texts.ts` | All texts, per language |
