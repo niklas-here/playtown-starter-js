@@ -41,6 +41,7 @@ Every game describes itself in `playtown.json`. Players and parents see these fa
 - **Must:** handle `SAVE_CONFLICT`: read again, merge, write again.
 - **Must:** keep players' saves readable across versions: a new save format adds the old ones to `saveSchemaReads` and upgrades them.
 - **Should:** save after important moments and on `session.suspend`, never every frame. One slot at most 256 KB.
+- **Should:** expect `session.end` with `time_limit` when the family's play time is up. PlayTown warns the player first and gives about two minutes to finish, so a game that saves at natural stopping points loses nothing.
 
 ## Safety and privacy
 
