@@ -24,6 +24,10 @@ jobs:
       # The same checks as PlayTown's import. A failing check stops the release here.
       - run: npx playtown validate
       - run: zip -qr playtown-export.zip dist
-      - run: gh release create "$GITHUB_REF_NAME" playtown-export.zip --title "$GITHUB_REF_NAME" --notes-file CHANGELOG.md
+      # The release text is what CHANGELOG.md says under the heading with the tag's name.
+      - run: |
+          awk -v tag="## $GITHUB_REF_NAME" '$0 == tag { found = 1; next } /^## / { found = 0 } found' CHANGELOG.md > release-notes.md
+          [ -s release-notes.md ] || echo "Version $GITHUB_REF_NAME" > release-notes.md
+          gh release create "$GITHUB_REF_NAME" playtown-export.zip --title "$GITHUB_REF_NAME" --notes-file release-notes.md
         env:
           GH_TOKEN: ${{ github.token }}

@@ -57,9 +57,10 @@ async function main() {
 async function load() {
   try {
     const save = await playtown!.saves.get(SLOT);
-    if (save && isProgress(save.data)) {
-      progress = save.data;
+    if (save) {
+      // Keep the revision even if the data is not recognised, or the next write would conflict.
       revision = save.revision;
+      if (isProgress(save.data)) progress = save.data;
     }
   } catch (error) {
     console.error("saves.get", error);

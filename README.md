@@ -54,9 +54,11 @@ npm run playtown:dev    # i en annan
 
 1. Be PlayTown lägga upp ditt spel. Du får ett spel-id, till exempel `stjarnjakt`. Skriv det som `gameId` i `playtown.json`.
 2. Installera PlayTowns GitHub-app på repot och koppla repot i PlayTown Studio.
-3. Skriv vad som är nytt i `CHANGELOG.md` och tagga en version:
+3. Skriv vad som är nytt i `CHANGELOG.md` under en rubrik med versionens namn, till exempel `## v0.1.0`. Committa, pusha och tagga versionen:
 
    ```bash
+   git commit -am "Version 0.1.0"
+   git push
    git tag v0.1.0
    git push origin v0.1.0
    ```
