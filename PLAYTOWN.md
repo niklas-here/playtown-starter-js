@@ -69,6 +69,7 @@ Only for games with the `commerce` capability.
 - **Must:** never ask for or store names, ages, photos, addresses or other personal data. `gamePlayerId` is the only player id there is.
 - **Must:** no advertising, tracking or analytics of your own.
 - **Must:** no chat or free text between players of the game's own. Friends and chat are PlayTown's; use `party.get()` and `ui.openParty()` to play together (see *Playing together*).
+- **Must:** never ask for the microphone or the camera. Voice between friends is PlayTown's, in the party.
 - **Must:** no secrets in the code: no keys, passwords or tokens.
 
 ## Content
@@ -89,4 +90,5 @@ Only for games with the `commerce` capability.
 2. `npm run validate`: the last line says the export passes.
 3. `npm run playtown`: open the platform menu, let an adult pause, make the next save conflict, switch the input mode, and try every language and the phone size.
 4. Write what is new in `CHANGELOG.md`, tag the version and push the tag.
+5. Write the release notes in Studio for players: they become PlayTown's news draft when the release reaches everyone.
 5. Import the tag in PlayTown Studio, play it in preview and send it for review.
