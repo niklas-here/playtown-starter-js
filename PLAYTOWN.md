@@ -35,6 +35,15 @@ Every game describes itself in `playtown.json`. Players and parents see these fa
 - **Should:** show button hints for the input mode in use (`onModeChange`, `input.mode`), with touch targets of at least 44 × 44 points.
 - **Should:** be understandable without much reading, and playable in short sessions.
 
+## Multiplayer
+
+Only for games with the `multiplayer` capability.
+
+- **Must:** declare every way to play together in `multiplayer.modes`, and ask for matches only through `match.find`. No servers or sockets of your own.
+- **Must:** handle every `match.state`: a player who drops out, comes back or leaves, and a match that is aborted. The game never hangs waiting for a player who is gone.
+- **Must:** the host checks the result and calls `match.finish` once. Every player applies the same moves in the same order.
+- **Should:** show other players by `displayName` only, and let the player stop looking and leave a match at any time.
+
 ## Saving
 
 - **Must:** save only through PlayTown (`saves.get`, `saves.put`), with the `saves` capability and `saveSchemaVersion` in `playtown.json`.
