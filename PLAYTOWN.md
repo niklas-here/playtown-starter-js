@@ -44,6 +44,17 @@ Only for games with the `multiplayer` capability.
 - **Must:** the host checks the result and calls `match.finish` once. Every player applies the same moves in the same order.
 - **Should:** show other players by `displayName` only, and let the player stop looking and leave a match at any time.
 
+## Purchases
+
+Only for games with the `commerce` capability.
+
+- **Must:** sell only the products in `commerce.products`, and only through `commerce.requestPurchase`. PlayTown shows the name and the price, and the player confirms in PlayTown's dialog. No prices, shops or buy buttons that look like payment of the game's own.
+- **Must:** read `commerce.entitlements()` when the game starts. Ownership lives in PlayTown, not in the saves.
+- **Must:** give out every consumable in `pending`, then call `commerce.consume`.
+- **Must:** handle `cancelled`, `INSUFFICIENT_COINS` and `POLICY_DENIED` quietly: no new prompt, no reminder.
+- **Must:** what is sold never gives an advantage over other players, and the game can be played to the end without buying anything.
+- **Should:** use the same name for a product in the game as its `title` in `playtown.json`.
+
 ## Saving
 
 - **Must:** save only through PlayTown (`saves.get`, `saves.put`), with the `saves` capability and `saveSchemaVersion` in `playtown.json`.
