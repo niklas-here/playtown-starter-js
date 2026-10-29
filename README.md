@@ -53,8 +53,8 @@ npm run playtown:dev    # in another
 
 ## Submitting to PlayTown
 
-1. Ask PlayTown to create your game. You get a game id, for example `star-hunt`. Put it as `gameId` in `playtown.json`.
-2. Install PlayTown's GitHub app on the repository and connect the repository in PlayTown Studio.
+1. Ask PlayTown to create your game: [open an issue](https://github.com/niklas-here/playtown-starter-js/issues/new) in this repository with the title *New game*, your organisation's short name in Studio and the game id you want, for example `star-hunt`. Put the id as `gameId` in `playtown.json`.
+2. Install PlayTown's GitHub app on the repository and connect the repository in PlayTown Studio. GitHub asks you to confirm that you can push to the repository.
 3. Write what is new in `CHANGELOG.md` under a heading with the version's name, for example `## v0.1.0`. Commit, push and tag the version:
 
    ```bash
@@ -66,3 +66,7 @@ npm run playtown:dev    # in another
 
 4. Wait until the *Release* workflow has finished on GitHub. Then import the tag `v0.1.0` in Studio.
 5. Try the game in preview and send it for review.
+
+## Getting help
+
+Ask questions and report problems as [issues in this repository](https://github.com/niklas-here/playtown-starter-js/issues). Issues are public: never put usernames, PINs, tokens or anything about a player in them. More in the documentation under [Getting help](https://playtown-docs-staging.niklas-2d1.workers.dev/support/).
