@@ -26,7 +26,8 @@ jobs:
       - run: zip -qr playtown-export.zip dist
       # The release text is what CHANGELOG.md says under the heading with the tag's name.
       - run: |
-          awk -v tag="## $GITHUB_REF_NAME" '$0 == tag { found = 1; next } /^## / { found = 0 } found' CHANGELOG.md > release-notes.md
+          # sed drops the empty lines before the first line of text.
+          awk -v tag="## $GITHUB_REF_NAME" '$0 == tag { found = 1; next } /^## / { found = 0 } found' CHANGELOG.md | sed '/./,$!d' > release-notes.md
           [ -s release-notes.md ] || echo "Version $GITHUB_REF_NAME" > release-notes.md
           gh release create "$GITHUB_REF_NAME" playtown-export.zip --title "$GITHUB_REF_NAME" --notes-file release-notes.md
         env:

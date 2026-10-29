@@ -47,7 +47,7 @@ async function main() {
   createInput({ onAction, onModeChange: setMode });
   board.addEventListener("pointerdown", onPointer);
   render();
-  // The game is ready to play. Until this call PlayTown shows "Startar spelet…".
+  // The game is ready to play. Until this call PlayTown shows "Starting the game…".
   await playtown?.lifecycle.running();
   requestAnimationFrame(frame);
 }
@@ -67,7 +67,14 @@ async function load() {
   }
 }
 
-async function save(attempt = 1): Promise<void> {
+/** PlayTown takes one write to a save slot at a time: each save waits for the one before. */
+let saving = Promise.resolve();
+function save(): Promise<void> {
+  saving = saving.then(() => write());
+  return saving;
+}
+
+async function write(attempt = 1): Promise<void> {
   if (!playtown || ended) return;
   try {
     const saved = await playtown.saves.put({ slot: SLOT, expectedRevision: revision, schemaVersion: SAVE_FORMAT, data: progress });
@@ -78,7 +85,7 @@ async function save(attempt = 1): Promise<void> {
       const current = await playtown.saves.get(SLOT);
       if (current && isProgress(current.data)) progress = mergeProgress(progress, current.data);
       revision = current?.revision ?? 0;
-      return save(attempt + 1);
+      return write(attempt + 1);
     }
     console.error("saves.put", error);
     message = t.saveFailed;
@@ -163,7 +170,8 @@ function setPaused(value: boolean) {
 }
 
 function end() {
-  // The session is over: saving no longer works, so the game only stops.
+  // The session is over: saving no longer works, and PlayTown closes the game and tells the player why.
+  // The game only stops.
   ended = true;
   render();
 }
@@ -189,8 +197,8 @@ function render() {
   }
   board.replaceChildren(...cells);
   const overlay = $("overlay");
-  overlay.hidden = !paused && !ended;
-  overlay.textContent = ended ? t.ended : t.paused;
+  overlay.hidden = !paused || ended;
+  overlay.textContent = t.paused;
 }
 
 void main();

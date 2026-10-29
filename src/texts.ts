@@ -17,7 +17,6 @@ const sv = {
   roundOver: (score: number) => `Tiden är slut: ${score} ${score === 1 ? "stjärna" : "stjärnor"}.`,
   newBest: "Nytt rekord!",
   paused: "Pausat",
-  ended: "Spelet är avslutat.",
   offline: "Körs utan PlayTown: inget sparas. Starta med npm run playtown.",
   saveFailed: "Det gick inte att spara.",
 } satisfies Texts;
@@ -37,7 +36,6 @@ const en: Texts = {
   roundOver: (score) => `Time's up: ${score} ${score === 1 ? "star" : "stars"}.`,
   newBest: "New record!",
   paused: "Paused",
-  ended: "The game has ended.",
   offline: "Running without PlayTown: nothing is saved. Start with npm run playtown.",
   saveFailed: "Could not save.",
 };
@@ -52,7 +50,6 @@ type Texts = {
   roundOver(score: number): string;
   newBest: string;
   paused: string;
-  ended: string;
   offline: string;
   saveFailed: string;
 };
